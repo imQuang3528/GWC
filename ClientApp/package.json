@@ -1,0 +1,72 @@
+{
+  "name": "spin-wheel-gwc",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@pixi/filter-adjustment": "^5.1.1",
+    "@pixi/particle-emitter": "^5.0.8",
+    "@pixi/react": "^7.1.1",
+    "@pixi/sound": "^5.2.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "axios": "^0.26.1",
+    "core-js": "^3.32.2",
+    "fontfaceobserver": "^2.3.0",
+    "matter-js": "^0.19.0",
+    "overlayscrollbars-react": "^0.5.3",
+    "pixi.js-legacy": "^7.2.4",
+    "poly-decomp": "^0.3.0",
+    "proxy-polyfill": "^0.3.2",
+    "react": "^18.0.0",
+    "react-delta": "^1.1.2",
+    "react-dom": "^18.0.0",
+    "react-error-boundary": "^4.0.10",
+    "react-redux": "^7.2.8",
+    "react-scripts": "^5.0.1",
+    "tweedle.js": "^2.1.0",
+    "typescript": "^5.1.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "Chrome >= 40",
+      "iOS >= 10",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/fontfaceobserver": "^2.1.0",
+    "cross-env": "^7.0.3",
+    "fork-ts-checker-webpack-plugin": "^6.5.3"
+  },
+  "overrides": {
+    "typescript": "^5.1.6",
+    "react-delta": {
+      "react": ">=16.0.0",
+      "react-dom": ">=16.0.0"
+    }
+  }
+}

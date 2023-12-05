@@ -1,0 +1,120 @@
+.popUpPrize1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popUpPrize1.hidden {
+  display: none;
+}
+
+.popup-box1 {
+  overflow: hidden;
+}
+
+.popup-content1 {
+  background-color: #fefefe;
+  width: 317px;
+  /* height: 385px; */
+  border-radius: 30px;
+}
+
+.popup-header1 {
+  text-align: center;
+  width: 100%;
+}
+
+.text-cg1 {
+  font-size: 28px;
+  padding: 23px 15px 0;
+  line-height: 42px;
+  margin-bottom: 0;
+}
+
+.popup-body1 p {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22.5px;
+}
+
+.popup-body1 {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.popup-img1 {
+  width: 200px;
+  padding: 10px;
+}
+
+.popup-footer1 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.button-popup-footer1 {
+  height: 35px;
+  width: 124px;
+  border-radius: 15px;
+}
+
+.prize-button1 {
+  color: #ffffff;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  box-shadow: 0px 12px 19px -9px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.popUpPrize1.grow-animation {
+  animation: opacity02 0.8s ease-out;
+}
+
+.popup-content1.grow-animation {
+  animation: grow-animation 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes grow-animation {
+  0% {
+    transform: translate(var(--grow-offset-x, 0), var(--grow-offset-y, 0))
+      scale(0);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes opacity02 {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.route40 {
+  animation-name: route40;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.opaciti01 {
+  animation-name: opaciti01;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}

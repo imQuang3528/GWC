@@ -1,0 +1,121 @@
+﻿<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 15px 0 0 0;
+        min-height: 100vh;
+        /* background: linear-gradient(
+              21.19deg,
+              rgba(241, 236, 221, 0.43) 26.7%,
+              rgba(233, 229, 219, 0.24) 88.38%
+            ); */
+        background: linear-gradient( 21.19deg, rgb(236 233 226 / 44%) 52%, rgb(212 209 201 / 33%) 80% );
+    }
+
+    #anotherSection, #anotherSection fieldset {
+        border: none !important;
+    }
+
+    #anotherSection {
+        padding: 0 5px;
+    }
+
+    .back-button {
+        width: 64px;
+        height: 44px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        font-size: 18px;
+        line-height: 1;
+        transition: 0.3s;
+    }
+
+    .gradient-text {
+        background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+<div onclick="goBack(this)" class="back-button">
+    <i class="fas fa-chevron-left gradient-text"></i>
+</div>
+<div id="anotherSection">
+    <fieldset>
+        <div id="ajaxResponse"></div>
+    </fieldset>
+</div>
+
+<script src="@ViewBag.Domain/GW2/pluginpages/env.jsp"></script>
+<script type="text/javascript" src="@ViewBag.Domain/GW2/js/apps.js"></script>
+<script>
+    window.onload = function () {
+        var txnReq = '@ViewBag.TxnReq'.split('&quot;').join('"');
+        var keyId = '@ViewBag.KeyId';
+        var hmac = '@ViewBag.Hmac'
+        if (txnReq && txnReq != "") {
+
+            sendPayLoad(txnReq, hmac, keyId);
+        }
+        else {
+            var timeout = 30;
+            var key = (new URL(document.location)).searchParams.get("key");
+            if (key != null && key != undefined && key != "") {
+                setInterval(function () {
+                    if (timeout > 0) {
+                        $.ajax({
+                            method: "GET",
+                            url: '/EndPoint?key=' + key,
+                            success: function (d) {
+                                console.log(d);
+                                if (timeout == 0) fail("Request time out")
+                                if (d.Status == 'Completed') { timeout = 0; console.log("OK"); success(d); }
+
+                                if (d.Status.toLowerCase().includes('failed')) {
+                                    timeout = 0;
+
+                                    fail(d);
+                                }
+                                timeout = timeout - 1;
+                            }
+                        });
+                    }
+                }, 1000);
+            }
+        }
+    };
+
+
+    $('#ajaxResponse').on('DOMSubtreeModified', function () {
+            const btnCancel = $('#btnCancel');
+
+            if (btnCancel && btnCancel.length) {
+                btnCancel.attr('onclick', 'window.ReactNativeWebView.postMessage("goBack")');
+            }
+        });
+
+    function goBack(btn) {
+        btn.style.opacity = "0.7";
+        window.ReactNativeWebView.postMessage("goBack");
+    }
+
+    function success(data) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(data));
+    }
+
+    function fail(msg) {
+        window.ReactNativeWebView.postMessage("fail:" + msg.Status);
+    }
+	// test
+</script>

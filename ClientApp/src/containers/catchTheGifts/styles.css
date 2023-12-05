@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap");
+
+html {
+  height: 100vh;
+  height: -webkit-fill-available;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+#container {
+  height: 100%;
+}
+
+.pyro {
+  z-index: 0;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,36 @@
+#noscript {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1em;
+  background: #fff;
+}
+
+.divLoader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgb(249, 248, 244);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svgLoader {
+  animation: circle-rotate 1.6s linear infinite;
+}
+
+@keyframes circle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

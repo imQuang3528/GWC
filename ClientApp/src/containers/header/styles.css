@@ -1,0 +1,30 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  user-select: none;
+
+  background-color: #fff;
+  top: var(--safe-top, 50px); /* --safe-top will be set by the app */
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 8px 0px;
+}
+
+.exit-btn {
+  left: 20px;
+}
+
+.desc-btn {
+  right: 20px;
+}

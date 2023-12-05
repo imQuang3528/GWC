@@ -1,0 +1,474 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.game-wrapper {
+  background: url("../assets/SpinWheelPictures/SpinWheelBackground.png")
+    no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: top;
+  overflow: scroll;
+  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth; */
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.text-turn {
+  text-align: center;
+  width: 100%;
+  font-size: 13px;
+  line-height: 17.73px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Montserrat" !important;
+}
+
+.title-box {
+  width: 338px;
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.text-gradient {
+  text-transform: uppercase;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spin-text {
+  /* text-transform: uppercase;  */
+  font-weight: 700;
+  font-size: 16px;
+  font-family: Montserrat !important;
+}
+
+.padding-45 {
+  padding-top: 45px;
+}
+
+.text-title {
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 45px;
+  font-family: "Poppins";
+}
+
+.round-box {
+  margin: auto;
+  width: 341px;
+  height: 341px;
+  position: relative;
+}
+
+.img-round {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.list-item {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 9px;
+  color: #ffffff;
+  width: fit-content;
+  transform-origin: center;
+}
+.list-item img {
+  width: 55px;
+}
+
+.list-item_name {
+  max-width: 60px;
+}
+
+.spinicon {
+  position: absolute;
+  top: 33%;
+  left: 33%;
+}
+
+.spinicon img {
+  width: 115px;
+}
+
+.turn-spin-box {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 8px 0;
+  margin-top: 15px;
+  width: 170px;
+  height: fit-content;
+  /* border-radius: 30px; */
+}
+
+.img-round {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.button-spin-box {
+  text-align: center;
+  margin: auto;
+  margin-top: 25px;
+  /* border-radius: 15px; */
+  height: fit-content;
+  position: relative;
+  z-index: 0;
+}
+
+.button-spin {
+  border-radius: 32px;
+  padding: 6px 42px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  background-color: #635d5d;
+  cursor: pointer;
+}
+
+.description-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 10px 21px;
+  height: fit-content;
+  overflow: auto;
+  overflow: scroll;
+}
+
+.text-description {
+  font-size: 14px;
+  line-height: 18px;
+  color: #626262;
+  margin-bottom: 5px;
+}
+
+.content-description {
+  overflow: scroll;
+  height: 0;
+  flex: 1 1 auto;
+  text-align: justify;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #4b4b4b;
+}
+
+.bottom-box {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  height: 100px;
+  background: #ffffff;
+  border: 0.5px solid #ffffff;
+  border-radius: 30px 30px 0px 0px;
+  position: relative;
+}
+
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%;
+  height: 291px;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.modal-box {
+  margin: 20px 25px 30px 26px;
+  height: 100%;
+}
+
+.modal-header {
+  font-size: 14px;
+  color: #626262;
+  height: 15%;
+}
+
+.modal-header h2 {
+  font-weight: 700 bold;
+}
+
+.modal-body {
+  font-size: 12px;
+  color: #4b4b4b;
+  height: 60%;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+
+.modal-body p {
+  font-weight: 400;
+}
+
+.modal-footer {
+  width: 100%;
+  text-align: center;
+}
+
+.close {
+  margin-top: -2px;
+  height: 34px;
+  width: 100%;
+  border-radius: 15px;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.popUpPrize {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 160px auto;
+  width: 317px;
+  height: 385px;
+  border-radius: 30px;
+}
+
+.popup-header {
+  text-align: center;
+  width: 100%;
+}
+
+.text-cg {
+  font-size: 28px;
+  padding-top: 23px;
+  line-height: 42px;
+  margin-bottom: 0;
+}
+
+.popup-body p {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22.5px;
+}
+
+.popup-body {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.popup-img {
+  width: 100%;
+}
+
+.popup-footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0;
+}
+
+.button-popup-footer {
+  height: 35px;
+  width: 124px;
+  border-radius: 15px;
+}
+
+.prize-button {
+  color: #ffffff;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  box-shadow: 0px 12px 19px -9px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.invalidModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+}
+
+.invalidModal-content {
+  background-color: #fefefe;
+  margin: 160px auto;
+  width: 317px;
+  height: 385px;
+  position: relative;
+}
+
+.invalidModal-content p {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.invalid-img {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 100%;
+}
+
+.outOfChancesModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.outOfChances-content {
+  background-color: #fefefe;
+  margin: 160px auto;
+  width: 317px;
+  height: 385px;
+  border-radius: 30px;
+}
+
+.outOfChances-header {
+  text-align: center;
+  width: 100%;
+}
+
+.text-chance {
+  font-size: 12px;
+  padding-top: 23px;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.outOfChances-body p {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22.5px;
+}
+
+.outOfChances-body {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.outOfChances-img {
+  width: 80%;
+}
+
+.outOfChances-footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 32px;
+}
+
+.closeChance {
+  height: 35px;
+  width: 124px;
+  border-radius: 15px;
+  color: #ffffff;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  box-shadow: 0px 12px 19px -9px rgba(0, 0, 0, 0.15);
+  /* font-family: "Poppins"; */
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.top-left-origin {
+  transform-origin: top left;
+}
+@media (max-height: 610px) {
+  .round-box {
+    width: 310px;
+    height: 310px;
+  }
+  .round-box .img-round img {
+    width: 310px;
+  }
+  .turn-spin-box {
+    margin-top: 5px;
+  }
+  .button-spin-box {
+    margin-top: 5px;
+  }
+  /* .spinicon {
+    top: 33%;
+    left: 31%;
+  } */
+  .spinicon img {
+    width: 105px;
+  }
+}
+@media (min-height: 1024px) {
+  .round-box {
+    margin-top: 130px;
+  }
+}

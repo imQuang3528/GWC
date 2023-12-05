@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+button:active {
+  opacity: 0.5;
+}
+
+.wrapper-sratch {
+  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-size: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.scratch-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-title {
+  margin: calc(var(--safe-top, 50px) + 10px) 50px 10px;
+  font-size: 4.5vh;
+  font-size: clamp(1em, 4.5vh, 2.5em);
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.main-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  flex: 1;
+}
+
+.result-container {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  overflow: hidden;
+  padding: 10px;
+
+  transition: color 0.3s ease-in-out;
+}
+
+.result-container > * {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.result-container.hide > * {
+  opacity: 0;
+}
+
+.result-container.hide-text {
+  color: transparent;
+}
+
+.result-container.show {
+  color: black;
+}
+
+.result-container.show > * {
+  opacity: 1;
+}
+
+.result-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.result-header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 5vw;
+  line-height: 7vw;
+}
+
+.result-container.show .progress-container {
+  opacity: 0;
+}
+
+.progress-container {
+  width: 40vw;
+  height: 2.5vw;
+  position: absolute;
+  top: 15vw;
+  border-radius: 7px;
+  border: 1px solid rgb(211, 158, 158);
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.progress-container > .progress-indicator {
+  background-color: rgb(251, 188, 188);
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s ease-in-out;
+}
+
+.result-body p {
+  font-weight: 700;
+  font-size: 4vw;
+  line-height: 5vw;
+}
+
+.result-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+.result-img {
+  flex-grow: 1;
+  width: 100%;
+  height: 0;
+  object-fit: contain;
+  margin-top: 15px;
+  user-select: none;
+}
+
+.loader-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.07);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 1vw solid #ffffff;
+  border-top: 1vw solid #a7a7a7;
+  border-radius: 50%;
+  width: 8vw;
+  height: 8vw;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes route20 {
+  from {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotate(-1080deg) scale(0);
+  }
+}
+
+/* @keyframes */
+
+.route20 {
+  animation-name: route20;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.scratch-content {
+  padding-top: 20px;
+}
+
+.chance-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.chance-content.hidden {
+  opacity: 0;
+  transition: opacity 0.25s ease-out 0.25s;
+}
+
+.chance-box {
+  width: 170px;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  line-height: 14px;
+  padding: 13px 0;
+}
+
+.chance-text-content {
+}
+
+.button-play-again {
+  width: 170px;
+  padding: 8px;
+  border-radius: 20px;
+  color: #ffffff;
+  background: linear-gradient(69.12deg, #a90069 1.98%, #ec008c 75.87%);
+  box-shadow: 0px 12px 19px -9px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.pyro > .before,
+.pyro > .after {
+  z-index: 1;
+}
+
+header {
+  z-index: 2;
+}

@@ -1,0 +1,1 @@
+var gwdomain = 'https://uat2.enets.sg';var apigwdomain = 'https://uat-api.nets.com.sg/GW2/TxnReqListener';

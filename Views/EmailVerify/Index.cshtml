@@ -1,0 +1,115 @@
+﻿<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+<style type="text/css">
+    body {
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient( 21.19deg, rgb(236 233 226 / 44%) 52%, rgb(212 209 201 / 33%) 80% );
+    }
+    .header {
+        background-image: url(https://greatrewards.com.sg/wp-content/uploads/2022/05/latest_promotion_bg.jpg);
+        height: 250px;
+        background-image: url(https://greatrewards.com.sg/wp-content/uploads/2022/05/latest_promotion_bg.jpg);
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+    }
+    .content {
+        padding: 40px 20px 20px 20px;
+        border-radius: 4px 4px 0px 0px;
+        color: #111111;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+        margin-top: -150px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+    }
+    .status {
+        text-align: center;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        line-height: 48px;
+    }
+    .text-content {
+        color: #666666;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 25px;
+        padding: 20px;
+        text-align: center;
+        font-size: 22px;
+    }
+    .join-now {
+        padding: 20px 30px 30px 30px;
+        text-align: center;
+    }
+        .join-now a {
+            font-size: 20px;
+            font-family: Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 2px;
+            border: 1px solid #ec008c;
+            display: inline-block;
+            background-color: #ec008c;
+        }
+</style>
+<div class="body-container">
+    <div class="header"></div>
+    <div class="content">
+        @{
+            if (ViewBag.Status == 1)
+            {
+                <div class="status">
+                    Email verified!
+                </div>
+            }
+            else
+            {
+                <div class="status">
+                    Email verification failed!
+                </div>
+            }
+        }
+        <div style="margin-top: 20px">
+            @{
+                if (ViewBag.Status == 1)
+                {
+                    <img src="~/images/email-verification.png" width="125" height="120" style="display: block; border: 0px; margin: auto">
+                }
+                else
+                {
+                    <img src="~/images/email-not-verified.png" width="125" height="120" style="display: block; border: 0px; margin: auto">
+                }
+            }
+        </div>
+        @{
+            if (ViewBag.Status == 1)
+            {
+                <div class="text-content">
+                    Thank you for your support, we have successfully verified your email.
+                </div>
+            }
+            else
+            {
+                <div class="text-content">
+                     An error occurred, please try again.
+                </div>
+            }
+        }
+        <div class="join-now">
+            <a href="@ViewBag.WebPageURL" target="_blank">LOG IN</a>
+        </div>
+    </div>
+    <div class="footer">
+        © 2022 Great Rewards. All Rights Reserved. GWC Commercial Pte Ltd.
+    </div>
+</div>

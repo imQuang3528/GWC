@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  height: -webkit-fill-available;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+#root {
+  flex: 1 1 auto;
+}
+
+.button-footer {
+  position: static;
+  margin-top: 0;
+}
+
+#game-container {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
