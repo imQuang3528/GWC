@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.Ajax.Utilities;
+using System.Linq;
 
 namespace GreateRewardsService.Controllers
 {
@@ -16,13 +18,20 @@ namespace GreateRewardsService.Controllers
     {
         [HttpGet]
         [Route(Constants.Urls.GameScores.GetScoreGame)]
-        public async Task<APIResultResponse> GetScoreGame(string memberId, string gameId)
+        public async Task<APIResultResponse> GetScoreGame(string memberId, string gameId, int numberDisplay = 1)
         {
             try
             {
+                var lstUserResponse = new ListStoreGameScoreResponse();
                 GameScoreService gameScoreService = new GameScoreService();
-                var result = gameScoreService.GetScoreGame(memberId, gameId);
-                return new APIResultResponse<List<StoreGameScoreResponseModel>>(result, true, "Get success");
+                var taskGetDetail = gameScoreService.TaskGetDetailUser(memberId, gameId);
+                var taskGetList = gameScoreService.TaskGetListUser(memberId, gameId, numberDisplay);
+                await Task.WhenAll(taskGetDetail, taskGetList);
+                var userDetail = taskGetDetail.Result;
+                var lstUser = taskGetList.Result;
+                lstUserResponse.CurrentUser = userDetail.Count() > 0 ? userDetail[0] : null;
+                lstUserResponse.ListUserBoard = lstUser;
+                return new APIResultResponse<ListStoreGameScoreResponse>(lstUserResponse, true, "Get success");
             }
             catch (Exception ex)
             {
@@ -58,7 +67,7 @@ namespace GreateRewardsService.Controllers
                 {
                     return new APIResultResponse<IssuedVoucherResponse>(result, true, "Success");
                 }
-                return new APIResultResponse<IssuedVoucherResponse>(result,result.Success, result.Message);
+                return new APIResultResponse<IssuedVoucherResponse>(result, result.Success, result.Message);
             }
             catch (Exception ex)
             {
